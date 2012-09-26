@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'HockeySDK-Taptera'
-  s.version  = '2.5.3.1'
+  s.version  = '2.5.3.3'
   s.license  = 'MIT'
   s.platform = :ios, '4.0'
   s.summary  = 'Distribute beta apps and collect crash reports with HockeyApp.'
@@ -20,12 +20,12 @@ Pod::Spec.new do |s|
   s.requires_arc = false
   s.preserve_paths = 'Resources', 'Support', 'Vendor'
   s.frameworks   = 'QuartzCore', 'SystemConfiguration', 'CrashReporter', 'CoreGraphics', 'UIKit'
-  s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/HockeySDK/Vendor"',
+  s.xcconfig     = { 'FRAMEWORK_SEARCH_PATHS' => "\"$(PODS_ROOT)/#{s.name}/Vendor\"",
                      'GCC_PREPROCESSOR_DEFINITIONS' => %{BITHOCKEY_VERSION="@\\"#{s.version}\\""} }
 
   def s.post_install(target_installer)
     puts "\nGenerating HockeySDK resources bundle\n".yellow if config.verbose?
-    Dir.chdir File.join(config.project_pods_root, 'HockeySDK/Support') do
+    Dir.chdir File.join(config.project_pods_root, "#{self.name}/Support") do
       command = "xcodebuild -project HockeySDK.xcodeproj -target HockeySDKResources CONFIGURATION_BUILD_DIR=../Resources"
       command << " 2>&1 > /dev/null" unless config.verbose?
       unless system(command)
