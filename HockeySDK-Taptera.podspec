@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'HockeySDK-Taptera'
-  s.version  = '2.5.4-taptera'
+  s.version  = '2.5.3.1-taptera'
   s.license  = 'MIT'
   s.platform = :ios, '4.0'
   s.summary  = 'Distribute beta apps and collect crash reports with HockeyApp.'
