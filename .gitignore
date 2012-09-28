@@ -12,6 +12,9 @@ xcuserdata
 profile
 *.moved-aside
 
+# AppCode
+.idea/
+
 # osx noise
 .DS_Store
 *.ipa
