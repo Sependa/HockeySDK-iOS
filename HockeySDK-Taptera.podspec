@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'HockeySDK-Taptera'
-  s.version  = '2.5.3.3'
+  s.version  = '2.5.3.5'
   s.license  = 'MIT'
   s.platform = :ios, '4.0'
   s.summary  = 'Distribute beta apps and collect crash reports with HockeyApp.'
@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
       end
     end
     File.open(File.join(config.project_pods_root, target_installer.target_definition.copy_resources_script_name), 'a') do |file|
-      file.puts "install_resource 'HockeySDK/Resources/HockeySDKResources.bundle'"
+      file.puts "install_resource '#{self.name}/Resources/HockeySDKResources.bundle'"
     end
   end
 end
